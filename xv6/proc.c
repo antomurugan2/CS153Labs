@@ -233,6 +233,8 @@ exit(void)
 
   if(curproc == initproc)
     panic("init exiting");
+  
+  curproc->status = status;
 
   // Close all open files.
   for(fd = 0; fd < NOFILE; fd++){
@@ -286,6 +288,9 @@ wait(void)
       havekids = 1;
       if(p->state == ZOMBIE){
         // Found one.
+        if(status) {
+		      *status = p->status;
+	      }
         pid = p->pid;
         kfree(p->kstack);
         p->kstack = 0;
