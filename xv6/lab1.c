@@ -9,19 +9,20 @@ int main(int argc, char *argv[]) {
     printf(1, "# This program tests the correctness of your lab#1\n");
     printf(1, "####################################################\n");
   
-    if (atoi(argv[1]) == 1)
-        exitWait(); // Test exit and wait
-    else if (atoi(argv[1]) == 2)
+   // if (atoi(argv[1]) == 1)
+     //   exitWait(); // Test exit and wait
+   if (atoi(argv[1]) == 2)
         waitPid(); // Test waitpid
     else 
         printf(1, "\ntype \"lab1 1\" to test exit and wait, \"lab1 2\" to test waitpid \n");
   
     // End of test
-    exit(0);
+ //   exit(0);
+    return 0;
 }
   
   
-int exitWait(void) {
+/*int exitWait(void) {
     int pid, ret_pid, exit_status;
     int i;
    
@@ -48,6 +49,7 @@ int exitWait(void) {
     }
     return 0;
 }
+*/
 
 int waitPid(void){	
     int ret_pid, exit_status;
@@ -63,7 +65,7 @@ int waitPid(void){
 	
         if (pid_a[i] == 0) { // only the child executed this code  
             printf(1, " - The is child with PID# %d and I will exit with status %d\n", getpid(), 0);
-            exit(0);
+           // exit(0);
         }
     }
        
